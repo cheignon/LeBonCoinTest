@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "7BF7191E-38C8-4C72-A3D6-5A75CEB8A92C"
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "EB93328B-D3CA-47EA-BE16-70134307ABB3"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LeBonCoinTestTests/LeBonCoinTestTests.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "56"
+            endingLineNumber = "56"
+            landmarkName = "testCallApi()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "EB93328B-D3CA-47EA-BE16-70134307ABB3 - 7dbec51203a5eb3a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #3 (__C.UIImage) -&gt; () in LeBonCoinTestTests.LeBonCoinTestTests.testCallApi() throws -&gt; ()"
+                  moduleName = "LeBonCoinTestTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/doriancheignon/Documents/XCODE/LeBonCoinTest/LeBonCoinTestTests/LeBonCoinTestTests.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "57"
+                  endingLineNumber = "57"
+                  offsetFromSymbolStart = "44">
+               </Location>
+               <Location
+                  uuid = "EB93328B-D3CA-47EA-BE16-70134307ABB3 - 7dbec51203a5eb3a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #3 (__C.UIImage) -&gt; () in LeBonCoinTestTests.LeBonCoinTestTests.testCallApi() throws -&gt; ()"
+                  moduleName = "LeBonCoinTestTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/doriancheignon/Documents/XCODE/LeBonCoinTest/LeBonCoinTestTests/LeBonCoinTestTests.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "57"
+                  endingLineNumber = "57"
+                  offsetFromSymbolStart = "72">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>
