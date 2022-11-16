@@ -11,12 +11,12 @@ class ImagesURL: NSObject {
 
     var small: String
     var thumb: String
-    
+
     init(apiEntity: ImagesURLApiEntity) {
         self.small = apiEntity.small ?? ""
         self.thumb = apiEntity.thumb ?? ""
     }
-    
+
     init(small: String, thumb: String) {
         self.small = small
         self.thumb = thumb

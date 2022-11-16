@@ -7,8 +7,7 @@
 
 import UIKit
 
-protocol DetailPresentationLogic
-{
+protocol DetailPresentationLogic {
     func presentImageCell(cell: UITableViewCell, image: UIImage)
     func presentCell(cell: UITableViewCell, object: ClassifiedAd)
 }
@@ -22,7 +21,7 @@ class DetailPresenter: DetailPresentationLogic {
             imageCell.imageProduct.image = image
         }
     }
-    
+
     func presentCell(cell: UITableViewCell, object: ClassifiedAd) {
         if let titleCell = cell as? TitleTableViewCell {
             let formatter = NumberFormatter()
@@ -38,5 +37,5 @@ class DetailPresenter: DetailPresentationLogic {
             descriptionCell.descriptionLabel.text = object.desc
         }
     }
-    
+
 }

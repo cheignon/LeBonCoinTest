@@ -16,7 +16,7 @@ extension ClassifiedAd {
         var desc: String = String.random(lenght: 450)
         var is_urgent: Bool = Bool.random()
         var images_url: ImagesURL = ImagesURL.mock()
-        var price:Float = Float(Int.random(in: 1..<1000))
+        var price: Float = Float(Int.random(in: 1..<1000))
         var siret: String = String.random(lenght: 13)
         return ClassifiedAd(id: id,
                             title: title,
@@ -28,7 +28,7 @@ extension ClassifiedAd {
                             price: price,
                             siret: siret)
     }
-    
+
     static func mocks(length: Int = 300) -> [ClassifiedAd] {
         var securedLength = length
         if securedLength < 0 {

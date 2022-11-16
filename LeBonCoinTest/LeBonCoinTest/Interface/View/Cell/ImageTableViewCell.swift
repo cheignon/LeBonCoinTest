@@ -10,12 +10,12 @@ import UIKit
 class ImageTableViewCell: UITableViewCell {
 
     var imageProduct: UIImageView = UIImageView()
-    
+
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         self.initialize()
     }
-    
+
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         self.initialize()
@@ -24,7 +24,6 @@ class ImageTableViewCell: UITableViewCell {
         super.awakeFromNib()
         self.initialize()
 
-
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -32,7 +31,7 @@ class ImageTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-    
+
     func initialize() {
         self.imageProduct.contentMode = .scaleAspectFill
         self.imageProduct.clipsToBounds = true
@@ -40,7 +39,7 @@ class ImageTableViewCell: UITableViewCell {
         self.addSubview(self.imageProduct)
         self.setupAutoLayout()
     }
-    
+
     func setupAutoLayout() {
         self.imageProduct.translatesAutoresizingMaskIntoConstraints = false
         let size = UIScreen.main.bounds.width

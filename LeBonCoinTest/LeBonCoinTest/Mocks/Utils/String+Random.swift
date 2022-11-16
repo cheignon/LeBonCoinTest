@@ -9,6 +9,6 @@ import Foundation
 extension String {
     static func random(lenght: Int) -> String {
         let letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789€.;, "
-        return String((0..<lenght).map{ _ in letters.randomElement()! })
+        return String((0..<lenght).map { _ in letters.randomElement()! })
     }
 }

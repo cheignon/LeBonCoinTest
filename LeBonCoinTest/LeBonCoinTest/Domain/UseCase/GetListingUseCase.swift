@@ -13,9 +13,7 @@ protocol GetListing {
 }
 
 struct GetListingUseCase: GetListing {
-    
-    
-    
+
     var repo: ListingRepository
     func getListing(completionHandler: @escaping ApiListingCompletionHandler) {
         self.repo.getListing(completionHandler: completionHandler)

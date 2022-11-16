@@ -8,9 +8,9 @@
 import Foundation
 
 struct CategoryImplementation: CategoryRepository {
-    
+
     var dataSource: ApiProtocol
-    
+
     func getCategory(completionHandler: @escaping ApiCategoryCompletionHandler) {
         self.dataSource.getCategory(completionHandler: completionHandler)
     }

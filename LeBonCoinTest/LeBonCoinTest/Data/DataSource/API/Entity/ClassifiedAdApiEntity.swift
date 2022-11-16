@@ -8,7 +8,7 @@
 import Foundation
 
 struct ClassifiedAdApiEntity {
-    
+
     var id: Int?
     var title: String?
     var category_id: Int?
@@ -18,7 +18,7 @@ struct ClassifiedAdApiEntity {
     var images_url: ImagesURLApiEntity?
     var price: Float?
     var siret: String?
-    
+
     enum CodingKeys: String, CodingKey {
         case id
         case title
@@ -30,8 +30,7 @@ struct ClassifiedAdApiEntity {
         case price
         case siret
     }
-    
-  
+
 }
 
 extension ClassifiedAdApiEntity: Decodable {
@@ -50,7 +49,6 @@ extension ClassifiedAdApiEntity: Decodable {
     }
 }
 
-
 extension ClassifiedAdApiEntity: Encodable {
     func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
@@ -65,8 +63,6 @@ extension ClassifiedAdApiEntity: Encodable {
         try container.encode(siret, forKey: .siret)
     }
 }
-
-
 
 extension Array where Element == ClassifiedAdApiEntity {
     func toModel() -> [ClassifiedAd] {

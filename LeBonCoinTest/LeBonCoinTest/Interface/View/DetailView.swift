@@ -18,20 +18,19 @@ class DetailView: UIView {
         self.delegate = delegate
         self.initialize()
     }
-    
-    
+
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         self.initialize()
     }
-    
+
     func initialize() {
         self.backgroundColor = .white
         self.setupTableView()
         self.setupButton()
         self.setupAutolayout()
     }
-    
+
     func setupTableView () {
         self.tableView = UITableView()
         self.tableView.dataSource = self.delegate
@@ -45,7 +44,7 @@ class DetailView: UIView {
         self.tableView.register(DescriptionTableViewCell.self, forCellReuseIdentifier: "DescriptionCell")
 
     }
-    
+
     func setupButton() {
         self.closeButton = UIButton()
         self.closeButton.layer.cornerRadius = 20
@@ -57,7 +56,7 @@ class DetailView: UIView {
         self.closeButton.addTarget(self, action: #selector(buttonDidClick), for: .touchUpInside)
         self.addSubview(self.closeButton)
     }
-    
+
     @objc func buttonDidClick() {
         self.delegate?.dismiss()
     }

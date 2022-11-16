@@ -10,7 +10,7 @@ import UIKit
 class Category: NSObject {
     var id: Int
     var name: String
-    
+
     init(apiEntity: CategoryAPIEntity) {
         self.id = apiEntity.id ?? 0
         self.name = apiEntity.name ?? ""
@@ -22,7 +22,7 @@ class Category: NSObject {
 }
 
 extension Array where Element == Category {
-    func name(id:Int) -> String {
+    func name(id: Int) -> String {
         let categoryfound = self.filter { category in
             return category.id == id
         }

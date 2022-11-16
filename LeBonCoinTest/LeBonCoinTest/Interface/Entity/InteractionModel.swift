@@ -19,57 +19,42 @@ import UIKit
  sauf que jai acces directement au donnée sans faire de traitement, tandis que la classe je vais demandé a mon pauvre petit iphone de retouver lespace memoire pour avoir les données que je veux
  mais attention si tu modifie la structure tu modifie pas l'objet il faut donc la reattribuer
  */
-enum Listing
-{
-  enum API
-  {
-    struct Request
-    {
-        
+enum Listing {
+  enum API {
+    struct Request {
+
     }
-    struct Response
-    {
+    struct Response {
         let datas: [ClassifiedAd]
     }
-    struct ViewModel
-    {
+    struct ViewModel {
         let datasSorted: [ClassifiedAd]
     }
   }
 }
 
-enum CategoryList
-{
-  enum API
-  {
-    struct Request
-    {
-        
+enum CategoryList {
+  enum API {
+    struct Request {
+
     }
-    struct Response
-    {
+    struct Response {
         let category: [Category]
     }
-    struct ViewModel
-    {
+    struct ViewModel {
         let category: [Category]
     }
   }
 }
 
-
-enum Cell
-{
-  enum Interface
-  {
-    struct Request
-    {
+enum Cell {
+  enum Interface {
+    struct Request {
         let cell: ListingTableViewCell
         let info: ClassifiedAd
-        
+
     }
-    struct Response
-    {
+    struct Response {
         let image: UIImage
         let categoryName: String
         let title: String
@@ -77,70 +62,53 @@ enum Cell
         let urgent: Bool
         let cell: ListingTableViewCell
     }
-    struct ViewModel
-    {
+    struct ViewModel {
         let category: [Category]
     }
   }
 }
 
-
-enum Sort
-{
-  enum Element
-  {
-    struct Request
-    {
+enum Sort {
+  enum Element {
+    struct Request {
         let id: Int
         let listing: [ClassifiedAd]
         let categories: [Category]
     }
-    struct Response
-    {
+    struct Response {
         let categoryName: String
         let listingByCategory: [ClassifiedAd]
     }
-    struct ViewModel
-    {
+    struct ViewModel {
         let categoryName: String
         let listingByCategory: [ClassifiedAd]
     }
   }
 }
 
-enum Filter
-{
-  enum Element
-  {
-    struct Request
-    {
+enum Filter {
+  enum Element {
+    struct Request {
         let searchText: String
         let listing: [ClassifiedAd]
     }
-    struct Response
-    {
+    struct Response {
         let listingFilterdBytext: [ClassifiedAd]
     }
-    struct ViewModel
-    {
+    struct ViewModel {
         let listingFilterdBytext: [ClassifiedAd]
     }
   }
 }
 
-enum Click
-{
-  enum Element
-  {
-    struct Request
-    {
+enum Click {
+  enum Element {
+    struct Request {
         let classifiedAd: ClassifiedAd
     }
-    struct Response
-    {
+    struct Response {
     }
-    struct ViewModel
-    {
+    struct ViewModel {
     }
   }
 }

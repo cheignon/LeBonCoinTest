@@ -7,8 +7,7 @@
 
 import Foundation
 
-protocol ListingBusinessLogic
-{
+protocol ListingBusinessLogic {
     func getListing(request: Listing.API.Request)
     func getCategory(request: CategoryList.API.Request)
     func makeFilter(categories: [Category])
@@ -22,19 +21,19 @@ protocol ListingDataStore {
 }
 
 class ListingInteractor: ListingBusinessLogic, ListingDataStore {
-    
+
     var object: ClassifiedAd?
     var presenter: ListingPresentationLogic?
     var listingWorker: ListingWorker?
-    
+
     func getListing(request: Listing.API.Request) {
-        
+
         /* voix off : "l'interactor il s'en fou en faite de l'evenement c'est un gros feignant donc il delegue a son pote le worker : "aller hop va travailler" */
-        
+
         self.listingWorker = ListingWorker()
-        
+
         /* voix off : "Mais que dois-je faire dit le worker, vas chercher les infos sur l'api repondit l'interactor (si cetait pas un test on aurais pu verrifié l'etat du reseau et voir ce quon avait en database)" */
-        
+
         self.listingWorker?.getListing(completionHandler: { data, error in
             DispatchQueue.main.async {
                 if error != nil {
@@ -45,12 +44,12 @@ class ListingInteractor: ListingBusinessLogic, ListingDataStore {
                     self.presenter?.presentErrorMessage(error: error!)
                     return
                 }
-                
+
                 /*
                  Worker : J'ai des donnée je crois
                  Interactor : verifie quand meme on ne sait jamais, car il etait une fois ...
                  */
-                
+
                 guard let verifiedDatas = data else {
                     /*
                      Worker : "j'ai bien fait de verifié sinon je me saurais fait engueuler encore une fois"
@@ -58,7 +57,7 @@ class ListingInteractor: ListingBusinessLogic, ListingDataStore {
                     self.presenter?.presentErrorMessage(error: APIServiceError.emptyData)
                     return
                 }
-                
+
                 /*
                  Worker: "c'est bon j'ai choper ce qu'il te faut"
                  Interactor: "T'es un bon gars, voici l'adresse de me contacte... 1200 Ocean Dr, Miami Beach, soit discret, son nom c'est le presenter il sera quoi faire de ca, mais avant tout ca mes ces info dans cette valise"
@@ -68,7 +67,7 @@ class ListingInteractor: ListingBusinessLogic, ListingDataStore {
             }
         })
     }
-    
+
     func getCategory(request: CategoryList.API.Request) {
         /*
          Interactor: "tu es la poto ?"
@@ -76,12 +75,12 @@ class ListingInteractor: ListingBusinessLogic, ListingDataStore {
         if self.listingWorker == nil {
             self.listingWorker = ListingWorker()
         }
-        
+
         /*
          Interactor: "J'ai une autre mission pour toi, les infos que tu nous as fournis ne sont pas asser precisent il faut que tu approfondisse ta recherche"
          Worker: " Ok , pas de probleme je mis met"
          */
-        
+
         self.listingWorker?.getCategory(completionHandler: { categories, error in
             DispatchQueue.main.async {
                 if error != nil {
@@ -108,22 +107,22 @@ class ListingInteractor: ListingBusinessLogic, ListingDataStore {
             }
         })
     }
-    
+
     func makeFilter(categories: [Category]) {
-     
+
         self.presenter?.treatmentCategory(categories: categories)
-        
+
     }
-    
+
     func prepareCell(request: Cell.Interface.Request, categories: [Category]) {
-    
+
         /*
          Interactor: "tu es la poto ?"
          */
         if self.listingWorker == nil {
             self.listingWorker = ListingWorker()
         }
-        
+
         /*
          Interatore : "Essaye de choper les tronches des mecs sur lesquel on bosse, merci.
          et oublie pas de monté un resumé sur eux"
@@ -131,7 +130,7 @@ class ListingInteractor: ListingBusinessLogic, ListingDataStore {
         let urlImage = request.info.images_url.small
         self.listingWorker?.getImage(url: urlImage, completionHandler: { image in
             DispatchQueue.main.async {
-            
+
                 let categoryName = categories.name(id: request.info.category_id)
                 let title = request.info.title
                 let price =  request.info.price
@@ -147,7 +146,7 @@ class ListingInteractor: ListingBusinessLogic, ListingDataStore {
             }
         })
     }
-    
+
     func sortListingByID(request: Sort.Element.Request) {
         /*
          Interactor: "tu es la poto ?"
@@ -155,7 +154,7 @@ class ListingInteractor: ListingBusinessLogic, ListingDataStore {
         if self.listingWorker == nil {
             self.listingWorker = ListingWorker()
         }
-        
+
         /*
          Interactore: "houhou poto!  jai le vrai big boss la il veux que les dossier sur un parrain de la pegre denomé ...."
          Worker: "No problem boss, je regroupe ca et je tenvoie .... et oui je sais direct dans la valise secu"
@@ -167,9 +166,9 @@ class ListingInteractor: ListingBusinessLogic, ListingDataStore {
                 self.presenter?.presentListingByCategory(request: response)
             }
         })
-       
+
     }
-    
+
     func filterListingByText(request: Filter.Element.Request) {
         /*
          Interactor: "tu es la poto ?"
@@ -184,12 +183,12 @@ class ListingInteractor: ListingBusinessLogic, ListingDataStore {
         guard let litingFiltered = self.listingWorker?.filterByText(searchText: request.searchText, listing: request.listing) else {
             return
         }
-        
+
         /* Worker : "c'est bon jai ce quil faut, jai du fouillé dans tout les dossier par titre et description cest trop relou "
          Intercator: "Tu assures... bon met ca dans la valise securisé et jenvoie ca a mon contact"*/
-        
+
         let response = Filter.Element.Response(listingFilterdBytext: litingFiltered)
         self.presenter?.presentListingFilteredByText(request: response)
     }
-    
+
 }

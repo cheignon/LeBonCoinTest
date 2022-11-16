@@ -10,7 +10,7 @@ import Foundation
 struct CategoryAPIEntity {
     var id: Int?
     var name: String?
-    
+
     enum CodingKeys: String, CodingKey {
         case id
         case name
@@ -24,7 +24,6 @@ extension CategoryAPIEntity: Decodable {
         name = try? values.decode(String.self, forKey: .name)
     }
 }
-
 
 extension CategoryAPIEntity: Encodable {
     func encode(to encoder: Encoder) throws {

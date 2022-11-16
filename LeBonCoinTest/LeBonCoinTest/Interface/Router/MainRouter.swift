@@ -18,11 +18,11 @@ protocol MainDataPassing {
 class MainRouter: NSObject, MainDataPassing, MainRoutingLogic {
     weak var viewController: MainViewController?
     var object: ListingDataStore?
-    
+
     func routeToDetail() {
         let destinationViewController = DetailViewController()
         destinationViewController.object = self.object?.object
         self.viewController?.present(destinationViewController, animated: true)
     }
-    
+
 }

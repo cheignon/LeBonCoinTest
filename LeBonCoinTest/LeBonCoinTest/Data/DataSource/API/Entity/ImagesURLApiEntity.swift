@@ -10,7 +10,7 @@ import Foundation
 struct ImagesURLApiEntity {
     var small: String?
     var thumb: String?
-    
+
     enum CodingKeys: String, CodingKey {
         case small
         case thumb
@@ -25,7 +25,6 @@ extension ImagesURLApiEntity: Decodable {
     }
 }
 
-
 extension ImagesURLApiEntity: Encodable {
     func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
@@ -33,4 +32,3 @@ extension ImagesURLApiEntity: Encodable {
         try container.encode(thumb, forKey: .thumb)
     }
 }
-

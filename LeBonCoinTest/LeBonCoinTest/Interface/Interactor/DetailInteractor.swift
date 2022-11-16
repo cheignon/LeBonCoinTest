@@ -7,16 +7,15 @@
 
 import UIKit
 
-protocol DetailBusinessLogic
-{
+protocol DetailBusinessLogic {
     func prepareCell(for indexPath: IndexPath, object: ClassifiedAd?) -> UITableViewCell
 }
 
 class DetailInteractor: DetailBusinessLogic {
-    
+
     var presenter: DetailPresentationLogic?
     var listingWorker: ListingWorker?
-    
+
     func prepareCell(for indexPath: IndexPath, object: ClassifiedAd?) -> UITableViewCell {
         guard let securedObject = object else {
             return UITableViewCell()
@@ -35,7 +34,7 @@ class DetailInteractor: DetailBusinessLogic {
         case 1:
             cell = TitleTableViewCell()
                 self.presenter?.presentCell(cell: cell, object: securedObject)
-            
+
         case 2:
             cell = DescriptionTableViewCell()
             self.presenter?.presentCell(cell: cell, object: securedObject)
@@ -45,5 +44,5 @@ class DetailInteractor: DetailBusinessLogic {
         }
         return cell
     }
-    
+
 }

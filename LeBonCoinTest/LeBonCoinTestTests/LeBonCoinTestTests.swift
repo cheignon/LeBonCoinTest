@@ -25,7 +25,7 @@ final class LeBonCoinTestTests: XCTestCase {
         XCTAssertEqual(category.id, 1)
         XCTAssertEqual(category.name, "Voiture")
     }
-    
+
     func testCreationClassifiedAd() throws {
         let object = ClassifiedAd.mock()
         assert((object.id as Any) is Int)
@@ -39,7 +39,7 @@ final class LeBonCoinTestTests: XCTestCase {
         assert((object.siret as Any) is String)
 
     }
-    
+
     func testCallApi() throws {
         let api = ApiMock()
         api.getCategory { category, error in

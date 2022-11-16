@@ -8,8 +8,7 @@
 import Foundation
 
 struct ListingImplementation: ListingRepository {
-    
-    
+
     var dataSource: ApiProtocol
     func getListing(completionHandler: @escaping ApiListingCompletionHandler) {
         self.dataSource.getListing(completionHandler: completionHandler)

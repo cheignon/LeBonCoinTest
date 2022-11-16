@@ -12,7 +12,7 @@ protocol GetCategory {
 }
 
 struct GetCategoryUseCase: GetCategory {
-    
+
     var repo: CategoryRepository
     func getCategory(completionHandler: @escaping ApiCategoryCompletionHandler) {
         self.repo.getCategory(completionHandler: completionHandler)

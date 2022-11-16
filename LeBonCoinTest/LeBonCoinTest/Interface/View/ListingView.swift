@@ -8,30 +8,29 @@
 import UIKit
 
 class ListingView: UIView {
-    
+
     var tableView: UITableView!
     var searchBar: UISearchBar!
     var delegate: (UITableViewDelegate & UITableViewDataSource & UISearchBarDelegate)?
-    
+
     init(delegate: UITableViewDelegate & UITableViewDataSource & UISearchBarDelegate) {
         super.init(frame: UIScreen.main.bounds)
         self.delegate = delegate
         self.initialize()
     }
-    
-    
+
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         self.initialize()
     }
-    
+
     func initialize() {
         self.backgroundColor = .white
         self.setupTableView()
         self.setupSearchBar()
         self.setupAutolayout()
     }
-    
+
     func setupTableView () {
         self.tableView = UITableView()
         self.tableView.delegate = self.delegate
@@ -41,7 +40,7 @@ class ListingView: UIView {
         self.tableView.register(ListingTableViewCell.self, forCellReuseIdentifier: "listingCell")
 
     }
-    
+
     func setupSearchBar() {
         self.searchBar = UISearchBar()
         self.searchBar.delegate = self.delegate
@@ -51,9 +50,9 @@ class ListingView: UIView {
         self.searchBar.setImage(imageTemplate, for: .bookmark, state: .normal)
         self.addSubview(self.searchBar)
     }
-        
+
     func setupAutolayout() {
-        
+
         self.searchBar.translatesAutoresizingMaskIntoConstraints = false
         self.tableView.translatesAutoresizingMaskIntoConstraints = false
 
@@ -66,7 +65,7 @@ class ListingView: UIView {
             self.tableView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
             self.tableView.trailingAnchor.constraint(equalTo: self.trailingAnchor)])
     }
-    
+
     func changeSearchBarForFilter(nameCategegory: String) {
         DispatchQueue.main.async {
             self.searchBar.showsBookmarkButton = false
@@ -75,7 +74,7 @@ class ListingView: UIView {
             self.tableView.reloadData()
         }
     }
-    
+
     func changeSearchBarForNormalState() {
         DispatchQueue.main.async {
             self.searchBar.showsBookmarkButton = true
@@ -83,6 +82,5 @@ class ListingView: UIView {
             self.tableView.reloadData()
         }
     }
-    
-    
+
 }
